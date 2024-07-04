@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: eksapp
+  name: ingress-eksapp
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+spec:
+  ingressClassName: alb
+  rules:
+    - http:
+        paths:
+        - path: /getallcrew
+          pathType: Prefix
+          backend:
+            service:
+              name: readcrew
+              port:
+                number: 80
+        - path: /getcrew
+          pathType: Prefix
+          backend:
+            service:
+              name: readcrew
+              port:
+                number: 80

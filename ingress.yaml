@@ -11,17 +11,38 @@ spec:
   rules:
     - http:
         paths:
-        - path: /getallcrew
-          pathType: Prefix
-          backend:
-            service:
-              name: readcrew
-              port:
-                number: 80
-        - path: /getcrew
-          pathType: Prefix
-          backend:
-            service:
-              name: readcrew
-              port:
-                number: 80
+          - path: /getallcrew
+            pathType: Prefix
+            backend:
+              service:
+                name: readcrew
+                port:
+                  number: 80
+          - path: /getcrew
+            pathType: Prefix
+            backend:
+              service:
+                name: readcrew
+                port:
+                  number: 80
+          - path: /updateCrew
+            pathType: Prefix
+            backend:
+              service:
+                name: updatecrew
+                port:
+                  number: 80
+          - path: /addCrew
+            pathType: Prefix
+            backend:
+              service:
+                name: addcrew
+                port:
+                  number: 80
+          - path: /deleteCrew
+            pathType: Prefix
+            backend:
+              service:
+                name: deletecrew
+                port:
+                  number: 80
